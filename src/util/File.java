@@ -9,14 +9,12 @@ import java.util.List;
 import java.util.Random;
 
 
-public class File
-{
+public class File {
     private static final String FILE = "liste_francais.txt";
     private ArrayList<String> wordsList = null;
 
 
-    public File()
-    {
+    public File() {
         super();
         wordsList = new ArrayList<>();
         openFile();
@@ -26,15 +24,14 @@ public class File
     /**
      * Recupere la liste des mots du dictionnaire en lisant le contenu du fichier
      */
-    private void openFile()
-    {
+    private void openFile() {
         try {
             InputStream flux = File.class.getResourceAsStream(FILE);
             InputStreamReader read = new InputStreamReader(flux);
             BufferedReader buff = new BufferedReader(read);
             String line;
 
-            while((line = buff.readLine()) != null) {
+            while ((line = buff.readLine()) != null) {
                 wordsList.add(line);
             }
 
@@ -48,10 +45,9 @@ public class File
     /**
      * Affiche tous les mots
      */
-    public void printWords()
-    {
+    public void printWords() {
         System.out.println("Affichage des mots présents dans le dictionnaire");
-        for(String m : wordsList) {
+        for (String m : wordsList) {
             System.out.println(m);
         }
     }
@@ -59,13 +55,13 @@ public class File
 
     /**
      * Affiche les mots qui commencent par la lettre x
+     *
      * @param s String s
      */
-    public void printWordsStartingBy(String s)
-    {
+    public void printWordsStartingBy(String s) {
         System.out.printf("Affichage des mots commençant par %s%n", s);
-        for(String m : wordsList) {
-            if(m.startsWith(s)) {
+        for (String m : wordsList) {
+            if (m.startsWith(s)) {
                 System.out.println(m);
             }
         }
@@ -74,14 +70,14 @@ public class File
 
     /**
      * Affiche les mots qui commencent par la lettre x et de n taille
+     *
      * @param s String s
      * @param i Integer i
      */
-    public void printWordsStartingByAndBySize(String s, int i)
-    {
+    public void printWordsStartingByAndBySize(String s, int i) {
         System.out.printf("Affichage des mots commençant par %s et qui font %s lettres de long", s, i);
-        for(String m : wordsList) {
-            if(m.startsWith(s) && m.length() == i) {
+        for (String m : wordsList) {
+            if (m.startsWith(s) && m.length() == i) {
                 System.out.println(m);
             }
         }
@@ -90,13 +86,13 @@ public class File
 
     /**
      * Affiche les mots de n lettres
+     *
      * @param nb Integer nb
      */
-    public void printWordsNbLetters(int nb)
-    {
+    public void printWordsNbLetters(int nb) {
         System.out.printf("Affichage des mots qui font %d lettres de long", nb);
-        for(String m : wordsList) {
-            if(m.length() == nb) {
+        for (String m : wordsList) {
+            if (m.length() == nb) {
                 System.out.println(m);
             }
         }
@@ -105,16 +101,16 @@ public class File
 
     /**
      * Retourne un mot au hasard qui fait n lettres de long
+     *
      * @param nb Integer nb
      * @return String
      */
-    public String getRandomWordNbLetters(int nb)
-    {
+    public String getRandomWordNbLetters(int nb) {
         List<String> words = new ArrayList<>();
         Random rand = new Random();
 
-        for(String m : wordsList) {
-            if(m.length() == nb) {
+        for (String m : wordsList) {
+            if (m.length() == nb) {
                 words.add(m);
             }
         }
@@ -125,15 +121,15 @@ public class File
 
     /**
      * Retourne la liste des mots de n lettres
+     *
      * @param nb Integer nb
      * @return List String
      */
-    public List<String> getWordsNbLetters(int nb)
-    {
+    public List<String> getWordsNbLetters(int nb) {
         List<String> words = new ArrayList<>();
 
-        for(String m : wordsList) {
-            if(m.length() == nb) {
+        for (String m : wordsList) {
+            if (m.length() == nb) {
                 words.add(m);
             }
         }
@@ -144,19 +140,19 @@ public class File
 
     /**
      * Retourne un mot au hasard qui contient des lettres
+     *
      * @param letters String letters
-     * @param nb Integer nb
+     * @param nb      Integer nb
      * @return String word
      */
-    public String getRandomWordWithLetter(String letters, int nb)
-    {
+    public String getRandomWordWithLetter(String letters, int nb) {
         System.out.println("Lettres trouvees sur le chemin : " + letters + "!");
         List<String> words = getWordsNbLetters(nb);
         List<String> acceptedWords = new ArrayList<>();
         Random rand = new Random();
 
-        for(String m : words) {
-            if(m.matches(letters)) {
+        for (String m : words) {
+            if (m.matches(letters)) {
                 acceptedWords.add(m);
             }
         }
