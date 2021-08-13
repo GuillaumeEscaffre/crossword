@@ -1,19 +1,27 @@
 import model.Grid;
-//import util.File;
 
-public class Play {
-    public static void main(String[] args) {
+public class Play
+{
+    public static void main(String[] args)
+    {
         Grid grid = new Grid();
         grid.createGrid();
-        grid.display_Grid();
+        grid.displayGrid();
+
         grid.setDefinition();
-        grid.display_Grid();
+        grid.displayGrid();
         System.out.print("\n");
+
         grid.setDefinition();
-        grid.display_Grid();
+        grid.displayGrid();
         System.out.print("\n");
+
         grid.setDefinition();
-        grid.display_Grid();
+        grid.displayGrid();
+        System.out.print("\n");
+
+
+        grid.displayGrid();
         System.out.print("\n");
     }
 }
